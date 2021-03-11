@@ -4,7 +4,8 @@
 </template>
 
 <script>
-import { Carousel, Slide } from 'vue-carousel';
+import Carousel from 'vue-carousel/src/Carousel.vue';
+import Slide from 'vue-carousel/src/Slide.vue';
 
 export default {
   components: {
