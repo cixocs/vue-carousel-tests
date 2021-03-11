@@ -1,0 +1,15 @@
+{
+  "include": [
+    "./src/**/*",
+    "./src/.vuepress/**/*"
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@vuepress/*": ["src/.vuepress/*"],
+      "@components/*": ["src/.vuepress/components/*"]
+    }
+  },
+  "exclude": ["node_modules", "build"]
+}

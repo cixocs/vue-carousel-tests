@@ -1,0 +1,39 @@
+{
+  "name": "vuepress-boilerplate",
+  "version": "1.0.0",
+  "description": "vuepress v1.x development environment",
+  "scripts": {
+    "svgo": "vuepress svgo src",
+    "dev": "vuepress dev src",
+    "build": "vuepress build src",
+    "preview": "http-server ./build/"
+  },
+  "author": "RootCisco",
+  "license": "MIT",
+  "dependencies": {
+    "hooper": "^0.3.4",
+    "pug": "^3.0.2",
+    "pug-plain-loader": "^1.1.0",
+    "ress": "^3.0.0",
+    "vue-carousel": "^0.18.0",
+    "vue-glide-js": "^1.3.14",
+    "vuepress": "^1.8.2",
+    "vuex": "^3.6.2"
+  },
+  "devDependencies": {
+    "@goy/vuepress-plugin-svg-icons": "^4.2.3",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.21.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-vue": "^7.7.0",
+    "http-server": "^0.12.3",
+    "prettier": "^2.2.1"
+  },
+  "browserslist": [
+    "last 2 version",
+    "ie 11",
+    "ios >= 10",
+    "Android >= 4.4",
+    ">= 5%"
+  ]
+}
