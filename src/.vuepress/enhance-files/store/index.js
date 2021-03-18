@@ -1,10 +1,14 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import carouselData from '../../data/carousel.json';
 
 Vue.use(Vuex);
 
+const shuffleData = carouselData.sort(() => 0.5 - Math.random());
+
 const state = {
-  currentLang: 'jp'
+  currentLang: 'jp',
+  carouselData: shuffleData
 };
 
 const modules = {};
