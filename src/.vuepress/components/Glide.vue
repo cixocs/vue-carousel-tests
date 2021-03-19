@@ -4,6 +4,9 @@
   VueGlide(ref='carousel', :options='glideOptions', @change='currentIndex')
     VueGlideSlide(ref='slide', v-for='(data, index) in carouselData', :key='index')
       img(:src='data.imagePath', :alt='data.title', loading='lazy', width='480', height='360')
+    template(slot='control')
+      span(data-glide-dir='<') prev
+      span(data-glide-dir='>') next
   .glide__info
     p.glide__info-title {{ currentInfo.title }}
     p.glide__info-desc {{ currentInfo.description }}
