@@ -3,7 +3,7 @@
   h2.glide-block__title vue-glide-js test
   VueGlide(ref='carousel', :options='glideOptions', @change='currentIndex')
     VueGlideSlide(ref='slide', v-for='(data, index) in carouselData', :key='index')
-      img(:src='data.imagePath', :alt='data.title', loading='lazy', width='480', height='360')
+      img(:src='$withBase(`/images/campaign-illust/${data.imageName}`)', :alt='data.title', loading='lazy', width='480', height='360')
     template(slot='control')
       span(data-glide-dir='<') prev
       span(data-glide-dir='>') next
@@ -11,7 +11,7 @@
     p.glide__info-title {{ currentInfo.title }}
     p.glide__info-desc {{ currentInfo.description }}
   .glide__fraction
-    p.glide__fraction-num.glide__fraction-num--current {{ slideIndex }}
+    p.glide__fraction-num.glide__fraction-num--current {{ currentSlide }}
     p.glide__fraction-num.glide__fraction-num--max {{ carouselData.length }}
 </template>
 
@@ -32,9 +32,9 @@ export default {
         perView: 3,
         gap: 40,
         focusAt: 'center',
-        autoplay: 6400,
+        autoplay: 6000,
         hoverpause: false,
-        animationDuration: 800,
+        animationDuration: 1000,
         breakpoints: {
           768: {
             perView: 1,
@@ -43,14 +43,14 @@ export default {
           }
         }
       },
-      slideIndex: 1,
+      currentSlide: 1,
       slides: []
     };
   },
   computed: {
     ...mapState(['carouselData']),
     currentInfo() {
-      const current = this.carouselData[this.slideIndex - 1];
+      const current = this.carouselData[this.currentSlide - 1];
       return current;
     }
   },
@@ -59,7 +59,7 @@ export default {
   },
   methods: {
     currentIndex(value) {
-      this.slideIndex = value + 1;
+      this.currentSlide = value + 1;
     }
   }
 };

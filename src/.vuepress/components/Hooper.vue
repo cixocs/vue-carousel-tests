@@ -4,7 +4,7 @@
   Hooper(:settings='hooperSettings')
     Slide(v-for='data in carouselData', :key='data.id')
       .hooper__thumb
-        img(:src='data.imagePath', :alt='data.title', loading='lazy', width='480', height='360')
+        img(:src='$withBase(`/images/campaign-illust/${data.imageName}`)', :alt='data.title', loading='lazy', width='480', height='360')
       p {{ data.title }}
     HooperNavigation(slot='hooper-addons')
     HooperPagination(slot='hooper-addons', mode='fraction')
