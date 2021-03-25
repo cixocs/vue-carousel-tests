@@ -8,10 +8,9 @@
     //-       img(:src='carouselItem(num).imagePath', :alt='carouselItem(num).title')
     //-     p {{ carouselItem(num).title }}
     //-     p {{ carouselItem(num).description }}
-    ClientOnly
-      Swiper(:options='swiperOptions')
-        SwiperSlide(v-for='num in 30', :key='num.id')
-          img(:src='carouselItem(num).imagePath', :alt='carouselItem(num).title')
+    Swiper(:options='swiperOptions')
+      SwiperSlide(v-for='num in 30', :key='num.id')
+        img(:src='carouselItem(num).imagePath', :alt='carouselItem(num).title')
 </template>
 
 <script>

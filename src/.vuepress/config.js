@@ -80,6 +80,17 @@ module.exports = {
     }
   },
   chainWebpack: (config, isServer) => {
+    config.module
+      .rule('swiper')
+      .test(/\.js$/)
+      .exclude.add(/node_modules\/(?!(dom7|ssr-window|swiper)\/).*/)
+      .end()
+      .use('babel-loader')
+      .loader('babel-loader')
+      .options({
+        presets: ['@babel/preset-env']
+      });
+
     // optimize
     if (process.env.NODE_ENV === 'production' && !isServer) {
       config.plugin('aggressive-merging').use(webpack.optimize.AggressiveMergingPlugin);
