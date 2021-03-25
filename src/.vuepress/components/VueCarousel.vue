@@ -27,8 +27,8 @@ export default {
   components: {
     // Carousel,
     // Slide
-    Swiper,
-    SwiperSlide
+    // Swiper,
+    // SwiperSlide
   },
   directives: {
     swiper: directive
