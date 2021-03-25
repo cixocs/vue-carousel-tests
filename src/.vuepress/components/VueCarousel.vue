@@ -19,8 +19,14 @@ import CarouselData from '../data/carousel.json';
 // import Carousel from 'vue-carousel/src/Carousel.vue';
 // import Slide from 'vue-carousel/src/Slide.vue';
 
-import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper';
+// import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper';
+
+import SwiperClass from 'swiper/js/swiper.esm';
+import getAwesomeSwiper from 'vue-awesome-swiper/dist/exporter';
+
 import 'swiper/css/swiper.css';
+
+const { Swiper, SwiperSlide } = getAwesomeSwiper(SwiperClass);
 
 export default {
   components: {
@@ -29,9 +35,9 @@ export default {
     Swiper,
     SwiperSlide
   },
-  directives: {
-    swiper: directive
-  },
+  // directives: {
+  //   swiper: directive
+  // },
   data() {
     return {
       carouselData: CarouselData,
