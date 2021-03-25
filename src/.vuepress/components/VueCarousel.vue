@@ -21,7 +21,7 @@ import CarouselData from '../data/carousel.json';
 
 // import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper';
 
-import SwiperClass from 'swiper/js/swiper.esm';
+import SwiperClass from 'swiper/js/swiper.esm.bundle';
 import getAwesomeSwiper from 'vue-awesome-swiper/dist/exporter';
 
 import 'swiper/css/swiper.css';
