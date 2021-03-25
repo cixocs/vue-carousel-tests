@@ -13,7 +13,7 @@
 <script>
 import { mapState } from 'vuex';
 import { Hooper, Slide, Pagination as HooperPagination, Navigation as HooperNavigation } from 'hooper';
-import 'hooper/dist/hooper.css';
+// import 'hooper/dist/hooper.css';
 
 export default {
   components: {
@@ -33,6 +33,7 @@ export default {
         autoPlay: true,
         playSpeed: 6000,
         transition: 600,
+        hoverPause: false,
         breakpoints: {
           769: {
             itemsToShow: 3
@@ -51,4 +52,33 @@ export default {
 .hooper
   &__title
     text-align: center
+
+>>> .hooper
+  position: relative
+  box-sizing: border-box
+  width: 100%
+
+  // height: 200px
+  *
+    box-sizing: border-box
+
+  &-list
+    overflow: hidden
+    width: 100%
+    height: 100%
+
+  &-track
+    display: flex
+    box-sizing: border-box
+    width: 100%
+    height: 100%
+    padding: 0
+    margin: 0
+
+  &-slide
+    flex-shrink: 0
+    height: 100%
+    margin: 0
+    padding: 0
+    list-style: none
 </style>
