@@ -8,20 +8,10 @@
     //-       img(:src='carouselItem(num).imagePath', :alt='carouselItem(num).title')
     //-     p {{ carouselItem(num).title }}
     //-     p {{ carouselItem(num).description }}
-
-    //- <!-- Slider main container -->
-    .swiper-container
-      //- <!-- Additional required wrapper -->
-      .swiper-wrapper
-        //- <!-- Slides -->
-        .swiper-slide(v-for='num in 30', :key='num.id')
+    ClientOnly
+      Swiper(:options='swiperOptions')
+        SwiperSlide(v-for='num in 30', :key='num.id')
           img(:src='carouselItem(num).imagePath', :alt='carouselItem(num).title')
-      //- <!-- If we need pagination -->
-      .swiper-pagination
-      //- <!-- If we need navigation buttons -->
-      .swiper-button-prev
-      .swiper-button-next
-    </div>
 </template>
 
 <script>
@@ -30,16 +20,15 @@ import CarouselData from '../data/carousel.json';
 // import Carousel from 'vue-carousel/src/Carousel.vue';
 // import Slide from 'vue-carousel/src/Slide.vue';
 
-import Swiper, { Navigation, Pagination } from 'swiper';
-
-Swiper.use([Navigation, Pagination]);
-
-import 'swiper/swiper-bundle.css';
+import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
+import 'swiper/css/swiper.css';
 
 export default {
   components: {
     // Carousel,
     // Slide
+    Swiper,
+    SwiperSlide
   },
   data() {
     return {
@@ -57,19 +46,7 @@ export default {
       };
     }
   },
-  mounted() {
-    new Swiper('.swiper-container', {
-      // If we need pagination
-      pagination: {
-        el: '.swiper-pagination'
-      },
-      // Navigation arrows
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
-      }
-    });
-  },
+  mounted() {},
   methods: {}
 };
 </script>
@@ -85,13 +62,4 @@ export default {
 
   &__rnd
     margin-top: 50px
-
-.swiper-container
-  width: 600px
-  height: 300px
-
-.swiper-slide
-  display: flex
-  align-items: center
-  justify-content: center
 </style>
