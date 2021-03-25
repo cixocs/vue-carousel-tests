@@ -8,9 +8,20 @@
     //-       img(:src='carouselItem(num).imagePath', :alt='carouselItem(num).title')
     //-     p {{ carouselItem(num).title }}
     //-     p {{ carouselItem(num).description }}
-    Swiper(:options='swiperOptions')
-      SwiperSlide(v-for='num in 30', :key='num.id')
-        img(:src='carouselItem(num).imagePath', :alt='carouselItem(num).title')
+
+    //- <!-- Slider main container -->
+    .swiper-container
+      //- <!-- Additional required wrapper -->
+      .swiper-wrapper
+        //- <!-- Slides -->
+        .swiper-slide(v-for='num in 30', :key='num.id')
+          img(:src='carouselItem(num).imagePath', :alt='carouselItem(num).title')
+      //- <!-- If we need pagination -->
+      .swiper-pagination
+      //- <!-- If we need navigation buttons -->
+      .swiper-button-prev
+      .swiper-button-next
+    </div>
 </template>
 
 <script>
@@ -19,25 +30,17 @@ import CarouselData from '../data/carousel.json';
 // import Carousel from 'vue-carousel/src/Carousel.vue';
 // import Slide from 'vue-carousel/src/Slide.vue';
 
-// import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper';
+import Swiper, { Navigation, Pagination } from 'swiper';
 
-import SwiperClass from 'swiper/js/swiper.esm.browser.bundle';
-import getAwesomeSwiper from 'vue-awesome-swiper/dist/exporter';
+Swiper.use([Navigation, Pagination]);
 
-import 'swiper/css/swiper.css';
-
-const { Swiper, SwiperSlide } = getAwesomeSwiper(SwiperClass);
+import 'swiper/swiper-bundle.css';
 
 export default {
   components: {
     // Carousel,
     // Slide
-    Swiper,
-    SwiperSlide
   },
-  // directives: {
-  //   swiper: directive
-  // },
   data() {
     return {
       carouselData: CarouselData,
@@ -54,7 +57,19 @@ export default {
       };
     }
   },
-  mounted() {},
+  mounted() {
+    new Swiper('.swiper-container', {
+      // If we need pagination
+      pagination: {
+        el: '.swiper-pagination'
+      },
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      }
+    });
+  },
   methods: {}
 };
 </script>
@@ -70,4 +85,13 @@ export default {
 
   &__rnd
     margin-top: 50px
+
+.swiper-container
+  width: 600px
+  height: 300px
+
+.swiper-slide
+  display: flex
+  align-items: center
+  justify-content: center
 </style>
