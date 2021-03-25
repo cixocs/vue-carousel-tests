@@ -69,6 +69,9 @@ export default {
 
 // swiper
 .swiper
+  &-container
+    overflow: hidden
+
   &-wrapper
     display: flex
     width: 100%
