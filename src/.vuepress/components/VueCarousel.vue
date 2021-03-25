@@ -20,7 +20,7 @@ import CarouselData from '../data/carousel.json';
 // import Carousel from 'vue-carousel/src/Carousel.vue';
 // import Slide from 'vue-carousel/src/Slide.vue';
 
-import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper';
+import { directive } from 'vue-awesome-swiper';
 // import 'swiper/swiper-bundle.css';
 
 export default {
