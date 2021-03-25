@@ -80,6 +80,8 @@ module.exports = {
     }
   },
   chainWebpack: (config, isServer) => {
+    config.module.rule('js').exclude.add(/node_modules\/(?!(dom7|ssr-window|swiper)\/).*/);
+
     // optimize
     if (process.env.NODE_ENV === 'production' && !isServer) {
       config.plugin('aggressive-merging').use(webpack.optimize.AggressiveMergingPlugin);
