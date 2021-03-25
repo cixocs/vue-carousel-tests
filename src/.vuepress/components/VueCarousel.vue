@@ -8,10 +8,9 @@
     //-       img(:src='carouselItem(num).imagePath', :alt='carouselItem(num).title')
     //-     p {{ carouselItem(num).title }}
     //-     p {{ carouselItem(num).description }}
-    div(v-swiper:mySwiper='swiperOptions')
-      ul.swiper-wrapper
-        li.swiper-slide(v-for='num in 30', :key='num.id')
-          img(:src='carouselItem(num).imagePath', :alt='carouselItem(num).title')
+    Swiper(:options='swiperOptions')
+      SwiperSlide(v-for='num in 30', :key='num.id')
+        img(:src='carouselItem(num).imagePath', :alt='carouselItem(num).title')
 </template>
 
 <script>
@@ -20,26 +19,22 @@ import CarouselData from '../data/carousel.json';
 // import Carousel from 'vue-carousel/src/Carousel.vue';
 // import Slide from 'vue-carousel/src/Slide.vue';
 
-import { directive } from 'vue-awesome-swiper';
-// import 'swiper/swiper-bundle.css';
+import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
+import 'swiper/swiper-bundle.css';
 
 export default {
   components: {
     // Carousel,
     // Slide
-    // Swiper,
-    // SwiperSlide
-  },
-  directives: {
-    swiper: directive
+    Swiper,
+    SwiperSlide
   },
   data() {
     return {
       carouselData: CarouselData,
       swiperOptions: {
-        slidesPerView: 'auto',
         loop: true,
-        centeredSlides: true
+        slidesPerView: 3
       }
     };
   },
@@ -66,19 +61,4 @@ export default {
 
   &__rnd
     margin-top: 50px
-
-// swiper
-.swiper
-  &-container
-    overflow: hidden
-
-  &-wrapper
-    display: flex
-    width: 100%
-    height: 100%
-
-  &-slide
-    flex-shrink: 0
-    width: get_vw(230) !important
-    margin: 0 get_vw(22)
 </style>
