@@ -8,9 +8,17 @@
     //-       img(:src='carouselItem(num).imagePath', :alt='carouselItem(num).title')
     //-     p {{ carouselItem(num).title }}
     //-     p {{ carouselItem(num).description }}
-    Swiper(:options='swiperOptions')
-      SwiperSlide(v-for='num in 30', :key='num.id')
-        img(:src='carouselItem(num).imagePath', :alt='carouselItem(num).title')
+
+    //- swiper component
+    //- Swiper(:options='swiperOptions')
+    //-   SwiperSlide(v-for='num in 30', :key='num.id')
+    //-     img(:src='carouselItem(num).imagePath', :alt='carouselItem(num).title')
+
+    //- swiper directive
+    div(v-swiper:mySwiper='swiperOptions')
+      ul.swiper-wrapper
+        li.swiper-slide(v-for='num in 30', :key='num.id')
+          img(:src='carouselItem(num).imagePath', :alt='carouselItem(num).title')
 </template>
 
 <script>
@@ -19,7 +27,7 @@ import CarouselData from '../data/carousel.json';
 // import Carousel from 'vue-carousel/src/Carousel.vue';
 // import Slide from 'vue-carousel/src/Slide.vue';
 
-import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
+import { Swiper, SwiperSlide, directive } from 'vue-awesome-swiper';
 import 'swiper/css/swiper.css';
 
 export default {
@@ -28,6 +36,9 @@ export default {
     // Slide
     Swiper,
     SwiperSlide
+  },
+  directives: {
+    swiper: directive
   },
   data() {
     return {

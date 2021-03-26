@@ -80,10 +80,10 @@ module.exports = {
     }
   },
   chainWebpack: (config, isServer) => {
+    // swiper transpile
     config.module
       .rule('swiper')
       .test(/\.js$/)
-      // .exclude.add(/node_modules\/(?!(dom7|ssr-window|swiper)\/).*/)
       .exclude.add(/node_modules\/(?!(swiper|dom7)\/).*/)
       .end()
       .use('babel-loader')
