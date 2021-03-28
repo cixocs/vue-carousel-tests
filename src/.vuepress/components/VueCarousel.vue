@@ -25,17 +25,18 @@
     //-   p {{ actives }}
 
     //- splide
-    Splide(:options='splideOptions', @splide:move='splideMove')
-      SplideSlide(v-for='data in carouselData', :key='data.id')
-        span.splide__slide-image
-          img(:src='data.imagePath', :alt='data.title')
-    .splide__info
-      .splide__info-summary
-        p {{ currentInfo.title }}
-        p {{ currentInfo.description }}
-      .splide__info-fraction
-        p {{ formatCurrentIndex }}
-        p {{ carouselData.length }}
+    ClientOnly
+      Splide(:options='splideOptions', @splide:move='splideMove')
+        SplideSlide(v-for='data in carouselData', :key='data.id')
+          span.splide__slide-image
+            img(:src='data.imagePath', :alt='data.title')
+      .splide__info
+        .splide__info-summary
+          p {{ currentInfo.title }}
+          p {{ currentInfo.description }}
+        .splide__info-fraction
+          p {{ formatCurrentIndex }}
+          p {{ carouselData.length }}
 </template>
 
 <script>
@@ -49,7 +50,7 @@ import CarouselData from '../data/carousel.json';
 // import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
 
 // vue-splide
-import { Splide, SplideSlide } from '@splidejs/vue-splide';
+// import { Splide, SplideSlide } from '@splidejs/vue-splide';
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 
 export default {
@@ -58,8 +59,14 @@ export default {
     // Slide,
     // Swiper,
     // SwiperSlide,
-    Splide,
-    SplideSlide
+    Splide: () =>
+      import('@splidejs/vue-splide')
+        .then((m) => m.Splide)
+        .catch(),
+    SplideSlide: () =>
+      import('@splidejs/vue-splide')
+        .then((m) => m.SplideSlide)
+        .catch()
   },
   data() {
     return {
