@@ -85,7 +85,7 @@ export default {
         easing: 'ease',
         pagination: false,
         keyboard: false,
-        flickPower: 250,
+        flickPower: 0,
         updateOnMove: true
       },
       current: 0,
@@ -166,5 +166,5 @@ export default {
       transition: transform 0.7s ease
 
     &.is-active > span
-      transform: scale3d(1.001, 1.001, 1.001) rotate(0.001deg)
+      transform: scale3d(1, 1, 1.001) rotate(0.001deg)
 </style>
