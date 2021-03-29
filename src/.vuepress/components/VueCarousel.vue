@@ -59,6 +59,8 @@ export default {
     // Slide,
     // Swiper,
     // SwiperSlide,
+    // Splide,
+    // SplideSlide
     Splide: () =>
       import('@splidejs/vue-splide')
         .then((m) => m.Splide)
