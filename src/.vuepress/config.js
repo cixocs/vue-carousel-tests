@@ -84,11 +84,14 @@ module.exports = {
     config.module
       .rule('splide')
       .test(/\.js$/)
-      .exclude.add(/node_modules\/(?!(@splidejs\/splide)\/).*/)
+      .exclude.add(/node_modules\/(?!(@splidejs)\/).*/)
       .end()
       .use('babel-loader')
       .loader('babel-loader')
-      .options({ presets: ['@babel/preset-env'] });
+      .options({
+        presets: ['@babel/preset-env'],
+        plugins: ['@babel/syntax-dynamic-import']
+      });
 
     // swiper transpile
     config.module
