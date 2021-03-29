@@ -80,12 +80,12 @@ export default {
         type: 'loop',
         speed: 600,
         autoWidth: true,
-        clones: 2,
+        // clones: 2,
         focus: 'center',
         easing: 'ease',
         pagination: false,
         keyboard: false,
-        flickPower: 0,
+        flickPower: 100,
         updateOnMove: true
       },
       current: 0,
@@ -166,5 +166,5 @@ export default {
       transition: transform 0.7s ease
 
     &.is-active > span
-      transform: scale3d(1, 1, 1) rotate(0.001deg)
+      transform: scale3d(1.001, 1.001, 1.001) rotate(0.001deg)
 </style>

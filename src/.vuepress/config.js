@@ -88,10 +88,7 @@ module.exports = {
       .end()
       .use('babel-loader')
       .loader('babel-loader')
-      .options({
-        presets: ['@babel/preset-env'],
-        plugins: ['@babel/syntax-dynamic-import']
-      });
+      .options({ presets: ['@babel/preset-env'] });
 
     // swiper transpile
     config.module
