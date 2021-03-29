@@ -80,6 +80,16 @@ module.exports = {
     }
   },
   chainWebpack: (config, isServer) => {
+    // splide
+    config.module
+      .rule('splide')
+      .test(/\.js$/)
+      .exclude.add(/node_modules\/(?!(@splidejs\/splide)\/).*/)
+      .end()
+      .use('babel-loader')
+      .loader('babel-loader')
+      .options({ presets: ['@babel/preset-env'] });
+
     // swiper transpile
     config.module
       .rule('swiper')
