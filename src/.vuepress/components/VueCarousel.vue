@@ -80,7 +80,7 @@ export default {
         type: 'loop',
         speed: 600,
         autoWidth: true,
-        clones: 2,
+        clones: 4,
         focus: 'center',
         easing: 'ease',
         pagination: false,
