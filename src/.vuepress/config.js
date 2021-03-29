@@ -80,7 +80,7 @@ module.exports = {
     }
   },
   chainWebpack: (config, isServer) => {
-    // splide
+    // splide transpile
     config.module
       .rule('splide')
       .test(/\.js$/)
