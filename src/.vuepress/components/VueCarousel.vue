@@ -30,13 +30,16 @@
         SplideSlide(v-for='data in carouselData', :key='data.id')
           span.splide__slide-image
             img(:src='data.imagePath', :alt='data.title')
-      .splide__info
-        .splide__info-summary
-          p {{ currentInfo.title }}
-          p {{ currentInfo.description }}
-        .splide__info-fraction
-          p {{ formatCurrentIndex }}
-          p {{ carouselData.length }}
+    .splide__info
+      .splide__info-summary
+        p {{ currentInfo.title }}
+        p {{ currentInfo.description }}
+      .splide__info-fraction
+        p {{ formatCurrentIndex }}
+        p {{ carouselData.length }}
+
+    p(style='width: 10vw')
+      img(src='http://placehold.jp/800x600.png', alt='')
 </template>
 
 <script>
@@ -162,7 +165,7 @@ export default {
     margin: 0 get_vw(2)
 
     > span
-      display: block
+      display: inline-block
       transform: scale3d(0.85, 0.85, 1) rotate(0.001deg)
       will-change: transform
       transition: transform 0.7s ease
