@@ -13,8 +13,19 @@ import store from './enhance-files/store';
 //   return api
 // }
 
-export default ({ Vue, options, router, siteData }) => {
+export default ({ Vue, options, router, siteData, isServer }) => {
   // Vue.prototype.$http = axiosBase()
+
+  if (!isServer) {
+    Vue.component('Splide', async () => {
+      const m = await import('@splidejs/vue-splide');
+      return m.Splide;
+    });
+    Vue.component('SplideSlide', async () => {
+      const m = await import('@splidejs/vue-splide');
+      return m.SplideSlide;
+    });
+  }
 
   Vue.mixin({ store: store });
 

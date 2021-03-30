@@ -61,14 +61,14 @@ export default {
     // SwiperSlide,
     // Splide,
     // SplideSlide
-    Splide: () =>
-      import('@splidejs/vue-splide')
-        .then((m) => m.Splide)
-        .catch(),
-    SplideSlide: () =>
-      import('@splidejs/vue-splide')
-        .then((m) => m.SplideSlide)
-        .catch()
+    // Splide: () =>
+    //   import('@splidejs/vue-splide')
+    //     .then((m) => m.Splide)
+    //     .catch(),
+    // SplideSlide: () =>
+    //   import('@splidejs/vue-splide')
+    //     .then((m) => m.SplideSlide)
+    //     .catch()
   },
   data() {
     return {
