@@ -165,7 +165,7 @@ export default {
     margin: 0 get_vw(2)
 
     > span
-      display: inline-block
+      display: block
       transform: scale3d(0.85, 0.85, 1) rotate(0.001deg)
       will-change: transform
       transition: transform 0.7s ease
